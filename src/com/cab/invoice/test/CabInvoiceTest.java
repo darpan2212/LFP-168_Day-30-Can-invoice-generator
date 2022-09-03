@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.cab.invoice.CabInvoiceGenerator;
+import com.cab.invoice.model.InvoiceModel;
 
 public class CabInvoiceTest {
 
@@ -34,8 +35,16 @@ public class CabInvoiceTest {
 
 	@Test
 	public void multipleRidesTC1() {
+		System.out.println("----------Book multiple rides----------------");
 		double multipleRidesFare = invoiceGenerator.bookMultipleRides(4);
 		System.out.println("Total fare amount : " + multipleRidesFare + " INR");
+	}
+
+	@Test
+	public void enhancedInvoiceTC1() {
+		System.out.println("------------Enhanced invoice--------------");
+		InvoiceModel model = invoiceGenerator.enhancedInvoice();
+		System.out.println(model);
 	}
 
 }

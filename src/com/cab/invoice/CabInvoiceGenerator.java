@@ -1,5 +1,6 @@
 package com.cab.invoice;
 
+import com.cab.invoice.model.InvoiceModel;
 import com.cab.invoice.util.Constant;
 import com.cab.invoice.util.Util;
 
@@ -34,6 +35,21 @@ public class CabInvoiceGenerator {
 		}
 		totalFare = Util.parseDoubleVal(totalFare);
 		return totalFare;
+	}
+
+	public InvoiceModel enhancedInvoice() {
+
+		InvoiceModel model = new InvoiceModel();
+
+		for (int i = 0; i < 30; i++) {
+			int rideCnt = (int) (Math.random() * 5 + 1);
+			model.setTotalRides(model.getTotalRides() + rideCnt);
+			double perDayFare = bookMultipleRides(rideCnt);
+			model.setTotalInvoiceFare(model.getTotalInvoiceFare() + perDayFare);
+		}
+		model.setAvgFare(
+				model.getTotalInvoiceFare() / model.getTotalRides());
+		return model;
 	}
 
 }
