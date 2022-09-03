@@ -43,8 +43,9 @@ public class CabInvoiceTest {
 	@Test
 	public void enhancedInvoiceTC1() {
 		System.out.println("------------Enhanced invoice--------------");
-		InvoiceModel model = invoiceGenerator.enhancedInvoice();
-		System.out.println(model);
+		invoiceGenerator.enhancedInvoice();
+		InvoiceModel invoice = invoiceGenerator.getInvoice();
+		System.out.println(invoice);
 	}
 
 }
